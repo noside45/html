@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Construcción de Software</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #3494e6, #ec6ead);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, #3494e6, #ec6ead);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+        }
+        
+        .card-content {
+            color: #555;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            padding: 30px;
+            margin: 20px 30px;
+            border-radius: 15px;
+            color: #333;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .process-container {
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .process-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            position: relative;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 10%;
+            width: 80%;
+            height: 5px;
+            background: linear-gradient(to right, #3494e6, #ec6ead);
+            z-index: 1;
+        }
+        
+        .step {
+            width: 18%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+        
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 15px;
+            background: linear-gradient(to right, #3494e6, #ec6ead);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-text {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #2c3e50;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .process-steps::before {
+                display: none;
+            }
+            
+            .step {
+                width: 100%;
+                margin-bottom: 25px;
+                display: flex;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .step-circle {
+                margin: 0 15px 0 0;
+                flex-shrink: 0;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+            
+            .highlight {
+                margin: 15px;
+                padding: 20px;
+            }
+            
+            .process-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Construcción de Software</h1>
+            <p class="subtitle">Creación de software funcional a través de actividades estructuradas</p>
+        </header>
+        
+        <div class="info-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h2 class="card-title">¿Qué es?</h2>
+                </div>
+                <div class="card-content">
+                    <p>La construcción de software implica la creación de software significativo y funcional mediante una combinación de codificación, verificación, pruebas unitarias, pruebas de integración y depuración.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h2 class="card-title">Relaciones</h2>
+                </div>
+                <div class="card-content">
+                    <p>Este proceso está fuertemente vinculado con el proceso de diseño de software y el de pruebas de software, ya que incluye diseño y pruebas importantes del software.</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h2 class="card-title">Elementos de Configuración</h2>
+                </div>
+                <div class="card-content">
+                    <p>La construcción de software generalmente produce la mayor cantidad de elementos de configuración que deben administrarse en un proyecto de software, como archivos de origen, documentación y casos de prueba.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="highlight">
+            <p>La construcción de software es una de las etapas que lleva a la implementación dentro del ciclo de vida del desarrollo de software.</p>
+        </div>
+        
+        <div class="process-container">
+            <h2 class="process-title">Proceso de Construcción</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-circle">1</div>
+                    <p class="step-text">Diseño</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">2</div>
+                    <p class="step-text">Codificación</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">3</div>
+                    <p class="step-text">Verificación</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">4</div>
+                    <p class="step-text">Pruebas Unitarias</p>
+                </div>
+                <div class="step">
+                    <div class="step-circle">5</div>
+                    <p class="step-text">Integración</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Infografía sobre Construcción de Software - Basado en las mejores prácticas de ingeniería de software</p>
+        </footer>
+    </div>
+</body>
+</html>
